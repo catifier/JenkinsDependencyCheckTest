@@ -13,5 +13,11 @@
 		      }
 		    }
 	    }
+	    post {
+		always {
+		    // Publish the OWASP Dependency-Check report
+		    step([$class: 'DependencyCheckPublisher', pattern: '**/dependency-check-report.xml'])
+		}
+	    }
 	}
 
